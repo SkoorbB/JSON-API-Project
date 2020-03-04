@@ -24,6 +24,12 @@ app.get("/country/:country", (req, res) => {
     });
 });
 
+app.get("/points/:points", (req, res) => {
+    Review.find({points: req.params.points})
+    .then(reviews => {
+        res.json(reviews)
+    });
+});
 
 app.listen(5000, () => {
     console.log('running 5000')

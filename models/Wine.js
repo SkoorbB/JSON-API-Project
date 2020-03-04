@@ -11,6 +11,6 @@ const Review = new Schema ({
     province: String,
     country: String,
     winery: String
-})
+});
 
-module.exports = mongoose.model('Review', Review)
+module.exports = mongoose.model('Review', Review);
