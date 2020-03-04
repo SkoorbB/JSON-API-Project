@@ -12,8 +12,9 @@ const make = Wine.map(item =>{
 
     const wine = {
         points: item.points,
+        taster_twitter_handle: item.taster_twitter_handle,
         title: item.title,
-        designation: item.designation,
+        description: item.description,
         variety: item.variety,
         region_1: item.region_1,
         region_2: item.region_2,

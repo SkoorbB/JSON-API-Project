@@ -1,15 +1,19 @@
 const mongoose = require('../db/connection'); 
 const Schema = mongoose.Schema
 
+const Location = new Schema ({
+    country: String,
+    region_1: String,
+    province: String
+});
+
 const Review = new Schema ({
+    location: [{Location}],
     points: String,
     title: String,
-    designation: String,
+    description: String,
+    taster_twitter_handle: String,
     variety: String,
-    region_1: String,
-    region_2: String,
-    province: String,
-    country: String,
     winery: String
 });
 
