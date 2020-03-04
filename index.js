@@ -31,7 +31,11 @@ app.get("/:id", (req, res) => {
 //     });
 // });
 
-
+app.post("/", (req, res) => {
+    Review.create(req.body).then(reviews => {
+        res.json(reviews);
+    });
+});
 
 app.listen(5000, () => {
     console.log('running 5000')
