@@ -11,6 +11,14 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get("/:id", (req, res) => {
+    Review.findById(req.params.id).then(reviews => {
+        res.json(reviews)
+    });
+});
+
+
+
 app.listen(5000, () => {
     console.log('running 5000')
 })
