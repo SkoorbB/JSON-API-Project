@@ -7,13 +7,17 @@ const Location = new Schema ({
     province: String
 });
 
-const Review = new Schema ({
-    location: [{Location}],
-    points: String,
-    title: String,
-    description: String,
-    taster_twitter_handle: String,
+const Description = new Schema ({
     variety: String,
+    description: String,
+    points: String,
+});
+
+const Review = new Schema ({
+    title: String,
+    taster_twitter_handle: String,
+    description: [{Description}],
+    location: [{Location}],
     winery: String
 });
 
