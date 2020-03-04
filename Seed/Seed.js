@@ -8,8 +8,6 @@ const Model = require('../models/Wine');
 //have to stringify words 
 //make the spaces with +
 const make = Wine.map(item =>{
-
-
     const wine = {
         title: item.title,
         taster_twitter_handle: item.taster_twitter_handle,
