@@ -17,6 +17,12 @@ app.get("/:id", (req, res) => {
     });
 });
 
+app.get("/country/:country", (req, res) => {
+    Review.find({country: req.params.country})
+    .then(reviews => {
+        res.json(reviews)
+    });
+});
 
 
 app.listen(5000, () => {
