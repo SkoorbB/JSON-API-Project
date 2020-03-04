@@ -17,6 +17,12 @@ app.get("/:id", (req, res) => {
     });
 });
 
+app.get("/:id/description", (req, res) => {
+    Review.findById(req.params.description.id).then(reviews => {
+        res.json(reviews)
+    });
+});
+
 // app.get("/description/:descriptionid", (req, res) => {
 //     Review.find({description: req.params.id})
 //     .then(reviews => {
@@ -36,6 +42,16 @@ app.post("/", (req, res) => {
         res.json(reviews);
     });
 });
+
+app.post('/:id/description', (req, res) => {
+    List.findByIdAndUpdate(
+      req.params.id,
+      { $push: { description: req.body } },
+      { new: true }
+    ).then(reviews => {
+      res.json(reviews)
+    })
+  })
 
 app.listen(5000, () => {
     console.log('running 5000')
