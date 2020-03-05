@@ -17,6 +17,12 @@ app.get("/country/:country", (req, res) => {
     });
 });
 
+app.get("/variety/:variety", (req, res) => {
+    Review.find({variety: req.params.variety}).then(reviews =>{
+        res.json(reviews)
+    });
+});
+
 app.get("/:id", (req, res) => {
     Review.findById(req.params.id).then(reviews => {
         res.json(reviews)
