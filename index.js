@@ -29,8 +29,8 @@ app.get("/:id", (req, res) => {
     });
 });
 
-app.get("/:id/review/:description", (req, res) => {
-    Review.findById(req.params.id, {review: req.params.description})
+app.get("/:id/:review", (req, res) => {
+    Review.findById(req.params.id, {review: req.params.review})
     .then(reviews => {
         res.json(reviews)
     });
@@ -44,21 +44,6 @@ app.get("/:id/:location/", (req, res) => {
 });
 
 
-// app.post("/", (req, res) => {
-//     Review.create(req.body).then(reviews => {
-//         res.json(reviews);
-//     });
-// });
-
-// app.post('/:id/description', (req, res) => {
-//     List.findByIdAndUpdate(
-//       req.params.id,
-//       { $push: { description: req.body } },
-//       { new: true }
-//     ).then(reviews => {
-//       res.json(reviews)
-//     })
-//   })
 
 app.listen(5000, () => {
     console.log('running 5000')
