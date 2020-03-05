@@ -11,6 +11,12 @@ app.get("/", (req, res) => {
     });
 });
 
+app.get("/country/:country", (req, res) => {
+    Review.find({country: req.params.country}).then(reviews =>{
+        res.json(reviews)
+    });
+});
+
 app.get("/:id", (req, res) => {
     Review.findById(req.params.id).then(reviews => {
         res.json(reviews)
