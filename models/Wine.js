@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const Review = new Schema ({
     title: String,
     taster_twitter_handle: String,
-    description: [
+    review: [
         new Schema({
             variety: String,
             description: String,
