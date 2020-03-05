@@ -24,7 +24,12 @@ app.get("/:id/review/:variety", (req, res) => {
     });
 });
 
-
+app.get("/:id/location/:country", (req, res) => {
+    Review.findById(req.params.id, {location: req.params.country})
+    .then(reviews => {
+        res.json(reviews)
+    });
+});
 
 
 // app.post("/", (req, res) => {
