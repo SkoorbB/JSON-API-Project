@@ -43,10 +43,8 @@ app.get("/:id/:location/", (req, res) => {
     });
 });
 
-app.post("/:id/review/:description", (req, res) => {
-    Review.findById(req.params.id, {review: req.params.description},
-        { $push: { review: req.body}},
-        {new: true})
+app.post("/", (req, res) => {
+    Review.find(req.body)
     .then(reviews => {
         res.json(reviews)
     });
