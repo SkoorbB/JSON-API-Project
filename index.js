@@ -17,8 +17,8 @@ app.get("/:id", (req, res) => {
     });
 });
 
-app.get("/description/:description", (req, res) => {
-    Review.find(req.params.id).then(reviews => {
+app.get("/review/variety", (req, res) => {
+    Review.find({review: req.params.review[0].variety}).then(reviews => {
         res.json(reviews)
     });
 });
