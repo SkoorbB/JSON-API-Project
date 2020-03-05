@@ -29,8 +29,8 @@ app.get("/:id", (req, res) => {
     });
 });
 
-app.get("/:id/:review", (req, res) => {
-    Review.findById(req.params.id, {review: req.params.review})
+app.get("/:id/review/:description", (req, res) => {
+    Review.findById(req.params.id, {review: req.params.description})
     .then(reviews => {
         res.json(reviews)
     });
@@ -42,6 +42,16 @@ app.get("/:id/:location/", (req, res) => {
         res.json(reviews)
     });
 });
+
+app.post("/:id/review/:description", (req, res) => {
+    Review.findById(req.params.id, {review: req.params.description},
+        { $push: { review: req.body}},
+        {new: true})
+    .then(reviews => {
+        res.json(reviews)
+    });
+});
+
 
 
 
